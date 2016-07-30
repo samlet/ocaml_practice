@@ -23,6 +23,19 @@ let rec sum l =
   ;;
 sum [1;2;3];;
 
+(*更复杂的列表模式。下面是一个消除列表中连续重复的函数。
+*)
+let rec destutter list =
+    match list with
+    | [] -> []
+    | [hd] -> [hd]
+    | hd1 :: hd2 :: tl ->
+      if hd1 = hd2 then destutter (hd2 :: tl)
+      else hd1 :: destutter (hd2 :: tl)
+  ;;
+destutter ["hey";"hey";"hey";"man!"];;
+
+
 
 type expr = Plus of expr * expr      (* means a + b *)
             | Minus of expr * expr     (* means a - b *)
