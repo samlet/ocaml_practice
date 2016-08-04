@@ -35,6 +35,22 @@ let rec destutter list =
   ;;
 destutter ["hey";"hey";"hey";"man!"];;
 
+(*OCaml中的另一个常用数据结构是option。option用以表示一个可能存在或不存在的值。如：
+*)
+(*https://github.com/realworldocaml/examples/pull/33
+I see what you mean. The API of Core has changed since the book was published. I just checked the older version of to_sec_string, and indeed it doesn't take a timezone argument. That's not very flexible, so I guess they improved the function since then.*)
+let divide x y =
+    if y = 0 then None else Some (x/y) ;;
+let log_entry maybe_time message =
+    let time =
+      match maybe_time with
+      | Some x -> x
+      | None -> Time.now ()
+    in
+    Time.to_sec_string ~zone:Core.Zone.local (time) ^ " -- " ^ message
+  ;;
+log_entry (Some Time.epoch) "A long long time ago";;
+log_entry None "Up to the minute";;
 
 
 type expr = Plus of expr * expr      (* means a + b *)
@@ -57,5 +73,8 @@ factorize (Plus (Times (Value "n", Value "x"),
 (*
 - : expr = Times (Value "n", Plus (Value "x", Value "y"))
 *)
+
+
+
 
 

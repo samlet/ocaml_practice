@@ -1,0 +1,9 @@
+https://github.com/mmottl/postgresql-ocaml
+
+https://github.com/darioteixeira/pgocaml
+	http://opam.ocaml.org/packages/pgocaml/pgocaml.2.3/
+	http://pgocaml.forge.ocamlcore.org/
+
+	PG'OCaml provides an interface to PostgreSQL databases for OCaml applications. It uses Camlp4 to extend the OCaml syntax, enabling one to directly embed SQL statements inside the OCaml code.
+
+
